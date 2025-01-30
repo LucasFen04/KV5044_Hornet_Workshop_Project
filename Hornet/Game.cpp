@@ -27,25 +27,17 @@ void Game::Update(double frametime)
     // In the space below, you can write code to create a game the hard way.
     // To start with, we will use this area, but later will use game objects.
     
-    if (HtKeyboard::instance.KeyPressed(SDL_SCANCODE_W))
+    Vector2D velocity;
+    velocity.setBearing(angle, 0.1);
+    pos = pos + velocity;
+
+    if (HtKeyboard::instance.KeyPressed(SDL_SCANCODE_RIGHT))
     {
-        Vector2D velocity(0.0, 50);
-        pos = pos + velocity * frametime;
+        angle = angle + 0.02;
     }
-    if (HtKeyboard::instance.KeyPressed(SDL_SCANCODE_A))
+    if (HtKeyboard::instance.KeyPressed(SDL_SCANCODE_LEFT))
     {
-        Vector2D velocity(-50, 0.0);
-        pos = pos + velocity * frametime;
-    }
-    if (HtKeyboard::instance.KeyPressed(SDL_SCANCODE_S))
-    {
-        Vector2D velocity(0.0, -50);
-        pos = pos + velocity * frametime;
-    }
-    if (HtKeyboard::instance.KeyPressed(SDL_SCANCODE_D))
-    {
-        Vector2D velocity(50, 0.0);
-        pos = pos + velocity * frametime;
+        angle = angle - 0.02;
     }
 
     HtGraphics::instance.DrawAt(pos, shipImage);

@@ -54,6 +54,7 @@ private:
     GameTimer m_timer;
     PictureIndex shipImage;
     Vector2D pos;
+    double angle;
 
 
 };
