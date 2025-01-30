@@ -23,7 +23,7 @@ public:
 
     // Use this function to set up your game each time it starts
     void StartOfGame();
-
+    
     // This function runs one "frame of animation".
     // Actually, in a windows environment it will probably
     // run much more often than that.
@@ -48,11 +48,12 @@ public:
     // This may well be empty
     void EndOfProgram();
 
-    PictureIndex shipImage;
+    
 
 private:
     GameTimer m_timer;
-
+    PictureIndex shipImage;
+    Vector2D pos;
 
 
 };
