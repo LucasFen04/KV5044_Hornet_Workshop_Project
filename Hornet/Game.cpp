@@ -15,7 +15,7 @@ void Game::StartOfProgram()
 // Use this function to intialise your game objects and load any assets
 void Game::StartOfGame()
 {
-
+    shipImage = HtGraphics::instance.LoadPicture("assets/ship.bmp");
 
 
 }
@@ -26,7 +26,8 @@ void Game::Update(double frametime)
 {
     // In the space below, you can write code to create a game the hard way.
     // To start with, we will use this area, but later will use game objects.
-
+    Vector2D pos(300, 300);
+    HtGraphics::instance.DrawAt(pos, shipImage);
 
 
 

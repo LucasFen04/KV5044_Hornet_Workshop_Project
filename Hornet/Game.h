@@ -48,6 +48,8 @@ public:
     // This may well be empty
     void EndOfProgram();
 
+    PictureIndex shipImage;
+
 private:
     GameTimer m_timer;
 
