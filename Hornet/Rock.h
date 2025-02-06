@@ -2,7 +2,7 @@
 #include "GameObject.h"
 
 
-class Rock : GameObject
+class Rock : public GameObject
 {
 public:
     Rock();
@@ -16,6 +16,6 @@ public:
 
 private:
     Vector2D m_velocity; // Will be used to store the velocity of the object
-
+    double m_speed; // Used for the speed wasn't created yet
 };
 

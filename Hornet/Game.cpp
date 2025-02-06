@@ -21,6 +21,8 @@ void Game::StartOfGame()
     shootSound = HtAudio::instance.LoadSound("assets/launchshort.wav");
     thrustSound = HtAudio::instance.LoadSound("assets/thrustloop.wav");
     thrustSoundChannel = -1;
+    theRock.Initialise();
+    
 }
 
 // Function runs each frame.
@@ -60,6 +62,8 @@ void Game::Update(double frametime)
         thrustSoundChannel = -1;
     }
 
+    theRock.Update(frametime);
+    theRock.Render();
 
     // The code below runs the managed part of the game engine
     // Best to leave it alone
