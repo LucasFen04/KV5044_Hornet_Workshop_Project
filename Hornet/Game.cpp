@@ -29,11 +29,12 @@ void Game::Update(double frametime)
 {
     // In the space below, you can write code to create a game the hard way.
     // To start with, we will use this area, but later will use game objects.
-    
-    Vector2D velocity;
-    velocity.setBearing(angle, 0.1);
-    pos = pos + velocity;
-
+    if (HtKeyboard::instance.KeyPressed(SDL_SCANCODE_UP))
+    {
+        Vector2D velocity;
+        velocity.setBearing(angle, 0.1);
+        pos = pos + velocity;
+    }
     if (HtKeyboard::instance.KeyPressed(SDL_SCANCODE_RIGHT))
     {
         angle = angle + 0.02;
@@ -49,11 +50,11 @@ void Game::Update(double frametime)
     {
         HtAudio::instance.Play(shootSound);
     }
-    if (HtKeyboard::instance.NewKeyPressed(SDL_SCANCODE_W))
+    if (HtKeyboard::instance.NewKeyPressed(SDL_SCANCODE_UP))
     {
        thrustSoundChannel = HtAudio::instance.Play(thrustSound, true);
     }
-    if (!HtKeyboard::instance.KeyPressed(SDL_SCANCODE_W) && thrustSoundChannel >= 0)
+    if (!HtKeyboard::instance.KeyPressed(SDL_SCANCODE_UP) && thrustSoundChannel >= 0)
     {
         HtAudio::instance.Stop(thrustSoundChannel);
         thrustSoundChannel = -1;
