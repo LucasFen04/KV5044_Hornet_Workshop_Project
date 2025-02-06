@@ -65,6 +65,5 @@ private:
     
     double thrustSoundChannel; // This variable is used so the sound doesn't keep playing and cause errors
 
-
 };
 

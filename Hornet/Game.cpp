@@ -60,7 +60,6 @@ void Game::Update(double frametime)
     }
 
 
-
     // The code below runs the managed part of the game engine
     // Best to leave it alone
     ObjectManager::instance.UpdateAll(frametime);
