@@ -18,6 +18,9 @@ void Game::StartOfGame()
     shipImage = HtGraphics::instance.LoadPicture("assets/ship.bmp");
     Vector2D pos(300, 300);
 
+    shootSound = HtAudio::instance.LoadSound("assets/launchshort.wav");
+    thrustSound = HtAudio::instance.LoadSound("assets/thrustloop.wav");
+    thrustSoundChannel = -1;
 }
 
 // Function runs each frame.
@@ -42,6 +45,20 @@ void Game::Update(double frametime)
 
     HtGraphics::instance.DrawAt(pos, shipImage);
 
+    if (HtKeyboard::instance.NewKeyPressed(SDL_SCANCODE_SPACE))
+    {
+        HtAudio::instance.Play(shootSound);
+    }
+    if (HtKeyboard::instance.NewKeyPressed(SDL_SCANCODE_W))
+    {
+       thrustSoundChannel = HtAudio::instance.Play(thrustSound, true);
+    }
+    if (!HtKeyboard::instance.KeyPressed(SDL_SCANCODE_W) && thrustSoundChannel >= 0)
+    {
+        HtAudio::instance.Stop(thrustSoundChannel);
+        thrustSoundChannel = -1;
+    }
+
 
 
     // The code below runs the managed part of the game engine
@@ -63,7 +80,7 @@ void Game::Update(double frametime)
 // You may want to stop sound effects.
 void Game::OnSuspend()
 {
-
+    
 }
 
 

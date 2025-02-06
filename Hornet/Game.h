@@ -51,10 +51,19 @@ public:
     
 
 private:
-    GameTimer m_timer;
-    PictureIndex shipImage;
-    Vector2D pos;
-    double angle;
+    GameTimer m_timer; // I would assume this variable is the timer for the game
+
+    PictureIndex shipImage; // This variable is to load the image of the ship
+
+    Vector2D pos; // This variable gives the position of an object
+
+    double angle; // This variable allows angled movement and the adjustment of it
+
+    SoundIndex shootSound; // This variable is to load the firing sound effect
+
+    SoundIndex thrustSound; // This variable is to load the thrust sound effect
+    
+    double thrustSoundChannel; // This variable is used so the sound doesn't keep playing and cause errors
 
 
 };
