@@ -1,9 +1,8 @@
-Generic Hornet App is built on the Hornet engine created by Chris Rook of Northumbria University.
+Space Rocks is built on the Hornet engine created by Chris Rook of Northumbria University.
 It uses SDL2, STL_image, STL_mixer and STL_ttf.
 Licence details, links and further information are available in the docs folder.
 
-Game program written by ** Insert name **
-a dopey idiot who is too lazy to update the credits page.
+Game program written by Lucas Fendick
 
 Images, fonts, sounds and music have been taken from the following sources.
 
