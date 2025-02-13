@@ -117,6 +117,7 @@ void Game::EndOfGame()
     for (Rock*& pNext : pTheRocks)
     {
         delete pNext;
+        pNext = nullptr;
     }
 
 
