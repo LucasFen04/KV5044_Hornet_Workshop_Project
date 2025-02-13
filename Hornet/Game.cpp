@@ -22,15 +22,14 @@ void Game::StartOfGame()
     thrustSound = HtAudio::instance.LoadSound("assets/thrustloop.wav");
     thrustSoundChannel = -1;
 
-    theRock.Initialise();
-
-    for (Rock* &pNext : pTheRocks)
+    Rock* pRock;
+    for (int i = 0; i < 10; i++)
     {
-        pNext = new Rock();
-        pNext->Initialise();
+        pRock = new Rock;
+        pRock->Initialise();
+        ObjectManager::instance.AddItem(pRock);
     }
-    
-    
+
 }
 
 // Function runs each frame.
@@ -70,14 +69,6 @@ void Game::Update(double frametime)
         thrustSoundChannel = -1;
     }
 
-    theRock.Update(frametime);
-    theRock.Render();
-
-    for (Rock*& pNext : pTheRocks)
-    {
-        pNext->Update(frametime);
-        pNext->Render();
-    }
     
 
     // The code below runs the managed part of the game engine
@@ -114,11 +105,6 @@ void Game::OnResume()
 // You can use this to clear up any memory, if needed
 void Game::EndOfGame()
 {
-    for (Rock*& pNext : pTheRocks)
-    {
-        delete pNext;
-        pNext = nullptr;
-    }
 
 
     //This line automatically deletes all managed objects
