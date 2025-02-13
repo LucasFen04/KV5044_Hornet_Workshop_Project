@@ -66,5 +66,6 @@ private:
     double thrustSoundChannel; // This variable is used so the sound doesn't keep playing and cause errors
 
     Rock theRock; // This is THE ROCK
+    Rock* pTheRocks[10]; // Array of pointers (test)
 };
 

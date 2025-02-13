@@ -24,6 +24,11 @@ void Game::StartOfGame()
 
     theRock.Initialise();
 
+    for (Rock* &pNext : pTheRocks)
+    {
+        pNext = new Rock();
+        pNext->Initialise();
+    }
     
     
 }
@@ -68,6 +73,11 @@ void Game::Update(double frametime)
     theRock.Update(frametime);
     theRock.Render();
 
+    for (Rock*& pNext : pTheRocks)
+    {
+        pNext->Update(frametime);
+        pNext->Render();
+    }
     
 
     // The code below runs the managed part of the game engine
@@ -104,7 +114,10 @@ void Game::OnResume()
 // You can use this to clear up any memory, if needed
 void Game::EndOfGame()
 {
-
+    for (Rock*& pNext : pTheRocks)
+    {
+        delete pNext;
+    }
 
 
     //This line automatically deletes all managed objects
