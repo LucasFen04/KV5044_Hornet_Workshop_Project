@@ -1,7 +1,7 @@
 #include "Game.h"
 #include "HtCamera.h"
 #include "ObjectManager.h"
-
+#include "Rock.h"
 void Game::StartOfProgram()
 {
 

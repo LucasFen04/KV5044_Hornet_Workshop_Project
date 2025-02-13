@@ -5,7 +5,6 @@
 #include "HtMouse.h"
 #include "HtAudio.h"
 #include "GameTimer.h"
-#include "Rock.h"
 
 // 17/06/2023
 // This class is where you will start programming a game.
@@ -65,7 +64,5 @@ private:
     
     double thrustSoundChannel; // This variable is used so the sound doesn't keep playing and cause errors
 
-    Rock theRock; // This is THE ROCK
-    Rock* pTheRocks[10]; // Array of pointers (test)
 };
 
