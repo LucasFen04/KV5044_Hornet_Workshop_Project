@@ -6,7 +6,25 @@ Rock::Rock(): GameObject(ObjectType::ROCK)
 
 void Rock::Update(double frametime)
 {
-    m_position = m_position + m_velocity;
+    m_position = m_position + m_velocity * frametime;
+
+
+    if ((m_position.XValue > 1600) && (m_velocity.XValue > 0))
+    {
+        m_velocity.XValue = -(m_velocity.XValue);
+    }
+    if ((m_position.XValue < -1600) && (m_velocity.XValue < 0))
+    {
+        m_velocity.XValue = -(m_velocity.XValue);
+    }
+    if ((m_position.YValue > 1000) && (m_velocity.YValue > 0))
+    {
+        m_velocity.YValue = -(m_velocity.YValue);
+    }
+    if ((m_position.YValue < -1000) && (m_velocity.YValue < 0))
+    {
+        m_velocity.YValue = -(m_velocity.YValue);
+    }
 }
 
 void Rock::ProcessCollision(GameObject& other)
