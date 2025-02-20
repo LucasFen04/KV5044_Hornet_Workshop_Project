@@ -2,6 +2,7 @@
 #include "HtCamera.h"
 #include "ObjectManager.h"
 #include "Rock.h"
+#include "Spaceship.h"
 void Game::StartOfProgram()
 {
 
@@ -15,9 +16,6 @@ void Game::StartOfProgram()
 // Use this function to intialise your game objects and load any assets
 void Game::StartOfGame()
 {
-    shipImage = HtGraphics::instance.LoadPicture("assets/ship.bmp");
-    Vector2D pos(300, 300);
-
     shootSound = HtAudio::instance.LoadSound("assets/launchshort.wav");
     thrustSound = HtAudio::instance.LoadSound("assets/thrustloop.wav");
     thrustSoundChannel = -1;
@@ -29,6 +27,14 @@ void Game::StartOfGame()
         pRock->Initialise();
         ObjectManager::instance.AddItem(pRock);
     }
+    
+    Spaceship* pSpaceship;
+    for (int i = 0; i < 1; i++)
+    {
+        pSpaceship = new Spaceship;
+        pSpaceship->Initialise();
+        ObjectManager::instance.AddItem(pSpaceship);
+    }
 
 }
 
@@ -38,22 +44,7 @@ void Game::Update(double frametime)
 {
     // In the space below, you can write code to create a game the hard way.
     // To start with, we will use this area, but later will use game objects.
-    if (HtKeyboard::instance.KeyPressed(SDL_SCANCODE_UP))
-    {
-        Vector2D velocity;
-        velocity.setBearing(angle, 0.1);
-        pos = pos + velocity;
-    }
-    if (HtKeyboard::instance.KeyPressed(SDL_SCANCODE_RIGHT))
-    {
-        angle = angle + 0.02;
-    }
-    if (HtKeyboard::instance.KeyPressed(SDL_SCANCODE_LEFT))
-    {
-        angle = angle - 0.02;
-    }
 
-    HtGraphics::instance.DrawAt(pos, shipImage);
 
     if (HtKeyboard::instance.NewKeyPressed(SDL_SCANCODE_SPACE))
     {
